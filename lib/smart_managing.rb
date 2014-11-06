@@ -1,0 +1,2 @@
+module SmartManaging
+end
