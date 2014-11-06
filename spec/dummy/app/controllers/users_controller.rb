@@ -1,8 +1,7 @@
-class UsersController < ApplicationController
+class UsersController < InheritedResources::Base
   include SmartListing::Helper::ControllerExtensions
   helper  SmartListing::Helper
-
-  before_filter :find_user, except: [:index, :new, :create]
+  respond_to :html, :js
 
   def index
     smart_listing_create partial: "users/list"
@@ -12,38 +11,14 @@ class UsersController < ApplicationController
     end
   end
 
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.create(user_params)
-  end
-
-  def edit
-  end
-
-  def update
-    @user.update_attributes(user_params)
-  end
-
-  def destroy
-    @user.destroy
-  end
-
   def change_name
-    @user.update_attribute('name', 'Changed Name')
+    resource.update_attribute('name', 'Changed Name')
     render 'update'
   end
 
   private
 
-  def find_user
-    @user = User.find(params[:id])
+  def build_resource_params
+    [params.fetch(:user, {}).permit(:name, :email)]
   end
-
-  def user_params
-    params.require(:user).permit(:name, :email)
-  end
-
 end
