@@ -13,3 +13,6 @@ gemspec
 # To use debugger
 # gem 'debugger'
 gem 'smart_listing', github: 'GCorbel/smart_listing', branch: 'refactoring'
+gem 'pry-rails'
+gem 'pry-nav'
+gem 'simple_form', github: 'plataformatec/simple_form'
