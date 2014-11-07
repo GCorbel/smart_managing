@@ -6,10 +6,10 @@
     <th></th>
   </thead>
   <tbody>
-    <% smart_listing.collection.each do |user| %>
-      <tr class="editable" data-id="<%= user.id %>">
-        <%= smart_listing.render object: user, partial: view_item_path,
-          locals: { object: user } %>
+    <% smart_listing.collection.each do |resource| %>
+      <tr class="editable" data-id="<%= resource.id %>">
+        <%= smart_listing.render object: resource, partial: view_item_path,
+          locals: { object: resource } %>
       </tr>
     <% end %>
     <%= smart_listing.item_new colspan: colspan, link: new_item_path %>

@@ -5,8 +5,8 @@
 <% end %>
 <td class="actions">
   <%= smart_listing_item_actions [
-    {name: :edit, url: edit_user_path(object)},
-    {name: :destroy, url: user_path(object), confirmation: 'Sure?'},
+    {name: :edit, url: edit_polymorphic_path(object)},
+    {name: :destroy, url: polymorphic_path(object), confirmation: 'Sure?'},
     {name: :custom, url: change_name_user_path(object),
      icon: "glyphicon glyphicon-user",
      method: :put, remote: true,
