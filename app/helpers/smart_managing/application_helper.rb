@@ -16,10 +16,26 @@ module SmartManaging
       attributes - SmartManaging::UNEDITABLE_ATTRIBUTES
     end
 
+    def resource_name
+      controller_name.to_sym
+    end
+
+    def view_item_path
+      "#{controller_path}/#{singular_resource_name}"
+    end
+
     private
 
     def klass
       controller_name.classify.constantize
+    end
+
+    def resource_name
+      controller_name.to_sym
+    end
+
+    def singular_resource_name
+      resource_name.to_s.singularize.to_sym
     end
   end
 end

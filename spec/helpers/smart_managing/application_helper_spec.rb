@@ -31,4 +31,11 @@ describe ApplicationHelper do
       expect(helper.editable_attributes).to eq expected
     end
   end
+
+  describe '#view_item_path' do
+    it 'give the path the view item template' do
+      expect(helper).to receive(:controller_name).and_return('users')
+      expect(helper.view_item_path).to eq 'application/user'
+    end
+  end
 end
