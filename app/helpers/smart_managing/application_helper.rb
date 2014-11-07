@@ -24,6 +24,10 @@ module SmartManaging
       "#{controller_path}/#{singular_resource_name}"
     end
 
+    def new_item_path
+      new_polymorphic_path(klass)
+    end
+
     private
 
     def klass
