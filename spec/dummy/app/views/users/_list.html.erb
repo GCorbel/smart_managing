@@ -1,8 +1,9 @@
 <table class="table table-striped">
   <thead>
-    <th class="col-md-5">Name</th>
-    <th class="col-md-5">Email</th>
-    <th class="col-md-2"></th>
+    <% attributes.each do |attr| %>
+      <th><%= attr.humanize %></th>
+    <% end %>
+    <th></th>
   </thead>
   <tbody>
     <% smart_listing.collection.each do |user| %>
@@ -11,7 +12,7 @@
           locals: { object: user } %>
       </tr>
     <% end %>
-    <%= smart_listing.item_new colspan: 3, link: new_user_path %>
+    <%= smart_listing.item_new colspan: colspan, link: new_user_path %>
   </tbody>
 </table>
 <% # Render nice pagination links fitted for Bootstrap 3 by default %>

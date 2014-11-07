@@ -1,9 +1,8 @@
-<td>
-  <%= object.name %>
-</td>
-<td>
-  <%= object.email %>
-</td>
+<% attributes.each do |attr| %>
+  <td>
+    <%= object.send(attr) %>
+  </td>
+<% end %>
 <td class="actions">
   <%= smart_listing_item_actions [
     {name: :edit, url: edit_user_path(object)},
