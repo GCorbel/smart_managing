@@ -1,7 +1,8 @@
-<td colspan="2">
+<td colspan="<%= colspan %>">
   <%= simple_form_for object, remote: true, html: { class: 'form-horizontal' } do |f| %>
-    <%= f.input :name %>
-    <%= f.input :email %>
+    <% editable_attributes.each do |attr| %>
+      <%= f.input attr %>
+    <% end %>
     <div class="form-group">
       <label class="control-label col-md-3"></label>
       <div class="col-md-5">
