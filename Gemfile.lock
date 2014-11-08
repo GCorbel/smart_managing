@@ -24,7 +24,7 @@ PATH
       coffee-rails
       jquery-rails
       rails (~> 4.1.7)
-      simple_form
+      simple_form (~> 3.1.0.rc2)
       smart_listing
 
 GEM
