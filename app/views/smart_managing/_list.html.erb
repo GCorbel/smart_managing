@@ -8,7 +8,7 @@
   <tbody>
     <% smart_listing.collection.each do |resource| %>
       <tr class="editable" data-id="<%= resource.id %>">
-        <%= smart_listing.render object: resource, partial: view_item_path,
+        <%= smart_listing.render object: resource, partial: 'item',
           locals: { object: resource } %>
       </tr>
     <% end %>

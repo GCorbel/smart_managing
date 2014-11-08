@@ -4,7 +4,7 @@ class UsersController < InheritedResources::Base
   respond_to :html, :js
 
   def index
-    smart_listing_create partial: "users/list"
+    smart_listing_create partial: 'list'
     respond_to do |format|
       format.html { render formats: :html }
       format.js { render formats: :js }
@@ -20,5 +20,9 @@ class UsersController < InheritedResources::Base
 
   def build_resource_params
     [params.fetch(:user, {}).permit(:name, :email)]
+  end
+
+  def _prefixes
+    super << 'smart_managing'
   end
 end

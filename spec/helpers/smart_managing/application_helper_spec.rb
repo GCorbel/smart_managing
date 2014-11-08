@@ -32,13 +32,6 @@ describe ApplicationHelper do
     end
   end
 
-  describe '#view_item_path' do
-    it 'give the path the view item template' do
-      expect(helper).to receive(:controller_name).and_return('users')
-      expect(helper.view_item_path).to eq 'application/user'
-    end
-  end
-
   describe '#new_item_path' do
     it 'give the path to the new item form' do
       expect(helper).to receive(:controller_name).and_return('users')

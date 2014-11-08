@@ -20,10 +20,6 @@ module SmartManaging
       controller_name.to_sym
     end
 
-    def view_item_path
-      "#{controller_path}/#{singular_resource_name}"
-    end
-
     def new_item_path
       new_polymorphic_path(klass)
     end
