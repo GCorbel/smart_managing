@@ -1,28 +1,7 @@
 class UsersController < InheritedResources::Base
-  include SmartListing::Helper::ControllerExtensions
-  helper  SmartListing::Helper
-  respond_to :html, :js
-
-  def index
-    smart_listing_create partial: 'list'
-    respond_to do |format|
-      format.html { render formats: :html }
-      format.js { render formats: :js }
-    end
-  end
-
+  include SmartManaging::ControllerHelpers
   def change_name
     resource.update_attribute('name', 'Changed Name')
     render 'update'
-  end
-
-  private
-
-  def build_resource_params
-    [params.fetch(:user, {}).permit(:name, :email)]
-  end
-
-  def _prefixes
-    super << 'smart_managing'
   end
 end
