@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/GCorbel/smart_listing.git
-  revision: 3dfb8f8dfbb274ae45732cb5a885bd177c78bb70
+  revision: 6bdc442292d9d81f1a2e92291c20834be48ad795
   branch: refactoring
   specs:
     smart_listing (1.0.0)
