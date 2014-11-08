@@ -1,19 +1,10 @@
 module SmartManaging
   module ApplicationHelper
-    def number_of_attributes
-      attributes.size
-    end
+    delegate :attributes, :editable_attributes, :number_of_attributes,
+      to: :manager
 
     def colspan
       number_of_attributes + 1
-    end
-
-    def attributes
-      klass.columns.map(&:name)
-    end
-
-    def editable_attributes
-      attributes - SmartManaging::UNEDITABLE_ATTRIBUTES
     end
 
     def resource_name

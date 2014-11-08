@@ -13,10 +13,30 @@ module SmartManaging
 
     def self.included(c)
       return unless c < ActionController::Base
-      c.helper_method :editable_attributes
+      c.helper_method :manager
       c.include SmartListing::Helper::ControllerExtensions
       c.helper  SmartListing::Helper
       c.respond_to :html, :js
+    end
+
+    def manager
+      @manager ||= manager_class.new(self)
+    end
+
+    def manager_class
+      custom_class? ? custom_class : SmartManaging::Base
+    end
+
+    def custom_class?
+      Object.const_defined?(custom_manager_name)
+    end
+
+    def custom_class
+      custom_manager_name.constantize
+    end
+
+    def custom_manager_name
+      "#{controller_name.classify}Manager"
     end
 
     def _prefixes
@@ -24,23 +44,7 @@ module SmartManaging
     end
 
     def build_resource_params
-      [params.fetch(model_sym, {}).permit(attributes)]
-    end
-
-    def model_sym
-      controller_name.to_s.singularize.to_sym
-    end
-
-    def klass
-      controller_name.classify.constantize
-    end
-
-    def attributes
-      klass.columns.map(&:name)
-    end
-
-    def editable_attributes
-      attributes - SmartManaging::UNEDITABLE_ATTRIBUTES
+      [params.fetch(manager.model_sym, {}).permit(manager.attributes)]
     end
   end
 end
