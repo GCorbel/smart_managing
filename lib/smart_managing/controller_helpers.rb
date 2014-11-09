@@ -13,10 +13,19 @@ module SmartManaging
 
     def self.included(c)
       return unless c < ActionController::Base
-      c.helper_method :manager
+      c.helper_method :manager, :smart_listing_resource,
+        :smart_listing_collection
       c.include SmartListing::Helper::ControllerExtensions
       c.helper  SmartListing::Helper
       c.respond_to :html, :js
+    end
+
+    def smart_listing_collection
+      collection
+    end
+
+    def smart_listing_resource
+      resource
     end
 
     def manager
