@@ -9,7 +9,7 @@ install it before to install SmartManaging.
 
 To install SmartManaging you have to add this in your Gemfile :
 ```ruby
-gem 'smart_listing', github: 'GCorbel/smart_listing', branch: 'refactoring'
+gem 'smart_listing', github: 'GCorbel/smart_listing'
 gem 'smart_managing'
 ```
 
