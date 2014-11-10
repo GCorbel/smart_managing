@@ -19,7 +19,7 @@ GIT
 PATH
   remote: .
   specs:
-    smart_managing (0.0.2)
+    smart_managing (0.0.3)
       bootstrap-sass (~> 3.0)
       coffee-rails (~> 4.0)
       jquery-rails (~> 3.0)
