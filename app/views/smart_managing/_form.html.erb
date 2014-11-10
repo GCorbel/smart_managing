@@ -3,7 +3,7 @@
     wrapper: :smart_managing_form,
     html: { class: 'form-horizontal' } do |f| %>
     <% editable_attributes.each do |attr| %>
-      <%= f.input attr %>
+      <%= field_for(form: f, klass: object.class, attr: attr) %>
     <% end %>
     <div class="form-group">
       <label class="control-label col-md-3"></label>

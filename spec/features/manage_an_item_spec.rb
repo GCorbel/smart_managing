@@ -11,11 +11,13 @@ feature "Manage items" do
   end
 
   scenario "Add a new item", js: true do
-    visit users_path
+    Group.create(name: 'Group1')
 
+    visit users_path
     click_on "New item"
     fill_in "Name", with: "Test name"
     fill_in "Email", with: "Test email"
+    select "Group1", from: "Group"
     click_on "Save"
 
     expect(page).to have_content("Test name")
@@ -51,5 +53,15 @@ feature "Manage items" do
     find('.change_name').click
 
     expect(page).to_not have_content("Changed Name")
+  end
+
+  scenario 'View a belong relation', js: true do
+    group = Group.create(name: 'Group', id: 999)
+    User.create(name: "Name 1", email: "Email 1", group: group)
+
+    visit users_path
+
+    expect(page).to have_content('Group')
+    expect(page).to_not have_content(999)
   end
 end

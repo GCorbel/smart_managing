@@ -4,14 +4,14 @@ describe SmartManaging::Base do
   describe '#number_of_attributes' do
     it 'give the number of attributes' do
       manager = build_manager
-      expect(manager.number_of_attributes).to eq 5
+      expect(manager.number_of_attributes).to eq 6
     end
   end
 
   describe '#attributes' do
     it 'give all attributes of the model' do
       manager = build_manager
-      expected = ['id', 'name', 'email', 'created_at', 'updated_at']
+      expected = ['id', 'name', 'email', 'group', 'created_at', 'updated_at']
       expect(manager.attributes).to eq expected
     end
   end
@@ -19,7 +19,7 @@ describe SmartManaging::Base do
   describe '#editable_attributes' do
     it 'give editable attributes of the model' do
       manager = build_manager
-      expected = ['name', 'email']
+      expected = ['name', 'email', 'group']
       expect(manager.editable_attributes).to eq expected
     end
   end

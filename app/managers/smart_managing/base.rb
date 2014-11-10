@@ -11,7 +11,7 @@ module SmartManaging
     end
 
     def attributes
-      klass.columns.map(&:name)
+      klass.columns.map {|column| standardize(column.name)}
     end
 
     def klass
@@ -30,6 +30,10 @@ module SmartManaging
 
     def controller_name
       controller.controller_name
+    end
+
+    def standardize(column)
+      column.gsub(/_id$/, '')
     end
   end
 end

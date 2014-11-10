@@ -15,6 +15,14 @@ module SmartManaging
       new_polymorphic_path(klass)
     end
 
+    def field_for(form:, klass:, attr:)
+      if klass.reflect_on_association(attr)
+        form.send(:association, attr)
+      else
+        form.send(:input, attr)
+      end
+    end
+
     private
 
     def klass
