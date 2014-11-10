@@ -21,6 +21,7 @@ feature "Manage items" do
     click_on "Save"
 
     expect(page).to have_content("Test name")
+    expect(page).to have_content("Group1")
   end
 
   scenario "Edit an item", js: true do

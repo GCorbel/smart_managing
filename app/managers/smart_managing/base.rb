@@ -10,6 +10,10 @@ module SmartManaging
       attributes.size
     end
 
+    def permitted_params
+      klass.columns.map(&:name)
+    end
+
     def attributes
       klass.columns.map {|column| standardize(column.name)}
     end

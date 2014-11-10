@@ -53,7 +53,7 @@ module SmartManaging
     end
 
     def build_resource_params
-      [params.fetch(manager.model_sym, {}).permit(manager.attributes)]
+      [params.fetch(manager.model_sym, {}).permit(manager.permitted_params)]
     end
   end
 end

@@ -16,6 +16,15 @@ describe SmartManaging::Base do
     end
   end
 
+  describe '#permitted_params' do
+    it 'give the column name of the model' do
+      manager = build_manager
+      expected = ['id', 'name', 'email', 'group_id', 'created_at',
+                  'updated_at']
+      expect(manager.permitted_params).to eq expected
+    end
+  end
+
   describe '#editable_attributes' do
     it 'give editable attributes of the model' do
       manager = build_manager
