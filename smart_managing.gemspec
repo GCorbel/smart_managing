@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Guirec Corbel"]
   s.email       = ["guirec.corbel@gmail.com"]
   s.homepage    = "https://github.com/GCorbel/smart_managing"
+  s.description = "Easy way to create a managing interface."
   s.summary     = "Easy way to create a managing interface."
   s.license     = "MIT"
 
