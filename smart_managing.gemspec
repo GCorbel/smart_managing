@@ -15,12 +15,12 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency 'rails', '~> 4.0'
+  s.add_dependency 'rails', '>= 3.0'
   s.add_dependency 'smart_listing', '>= 1.0.0'
   s.add_dependency 'jquery-rails', '~> 3.0'
-  s.add_dependency 'coffee-rails', '~> 4.0'
+  s.add_dependency 'coffee-rails', '>= 3.0'
   s.add_dependency 'bootstrap-sass', '~> 3.0'
-  s.add_dependency 'simple_form', '~> 3.1.0.rc2'
+  s.add_dependency 'simple_form', '>= 2.0'
 
   s.add_development_dependency 'sqlite3', '~> 1.0'
   s.add_development_dependency 'rspec-rails', '~> 3.0'

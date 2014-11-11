@@ -16,8 +16,8 @@ module SmartManaging
     end
 
     def field_for(form:, klass:, attr:)
-      if klass.reflect_on_association(attr)
-        form.send(:association, attr)
+      if klass.reflect_on_association(attr.to_sym)
+        form.send(:association, attr.to_sym)
       else
         form.send(:input, attr)
       end

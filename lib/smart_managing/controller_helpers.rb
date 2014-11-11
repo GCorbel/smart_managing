@@ -53,7 +53,13 @@ module SmartManaging
     end
 
     def build_resource_params
-      [params.fetch(manager.model_sym, {}).permit(manager.permitted_params)]
+      parameters = params
+      parameters = parameters.fetch(manager.model_sym, {})
+      if parameters.respond_to?(:permit)
+        [parameters.permit(manager.permitted_params)]
+      else
+        [parameters]
+      end
     end
   end
 end
