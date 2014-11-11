@@ -2,6 +2,10 @@
 
 SmartManaging is a tool which allow create easily a beautiful management interface while keeping the agility and the power of Rails.
 
+## Demo
+
+You can find a demo application [here](https://demo-smart-managing.herokuapp.com) and the source of the demo [here](https://github.com/GCorbel/demo-smart-managing).
+
 ## Install in an existing project
 
 SmartManging uses SmartListing, SimpleForm and Twitter-Bootsrap. You must to
